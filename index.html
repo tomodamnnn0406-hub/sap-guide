@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAP Exam – Interactive Study Guide</title>
+<style>
+:root{--blue:#1F4E79;--blue2:#2c6ca8;--bg:#f4f6f9;--card:#fff;--line:#e2e8f0;--grey:#5a5a5a;--green:#1e7b34;--greenbg:#e8f5ec;--amber:#9a6700;--amberbg:#fff6d9;--red:#b42318;--redbg:#fde7e7;}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:#1c2733;line-height:1.5}
+.wrap{max-width:860px;margin:0 auto;padding:18px 16px 80px}
+header h1{color:var(--blue);font-size:26px;margin:6px 0 2px}
+header .sub{color:var(--grey);font-size:13px;margin-bottom:14px}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.bar input[type=search]{flex:1;min-width:140px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:14px}
+.numwrap{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--grey);font-weight:600}
+#num{width:56px;padding:7px 8px;border:2px solid var(--blue2);border-radius:8px;font-size:15px;font-weight:700;color:var(--blue);text-align:center}
+.btn{border:1px solid var(--line);background:#fff;color:var(--blue);padding:7px 11px;border-radius:8px;font-size:13px;cursor:pointer}
+.btn:hover{background:#eef3fa}
+.overall{font-size:13px;color:var(--grey);margin:6px 2px 14px}
+.overall b{color:var(--blue)}
+.obar{height:8px;background:#e6ecf3;border-radius:6px;overflow:hidden;margin-top:5px}
+.obar i{display:block;height:100%;width:0;background:var(--green);transition:width .25s}
+details.card{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:10px 0;overflow:hidden;box-shadow:0 1px 2px rgba(20,40,70,.04)}
+details.card>summary{list-style:none;cursor:pointer;padding:13px 15px;display:flex;align-items:center;gap:10px;font-weight:600}
+details.card>summary::-webkit-details-marker{display:none}
+.ref>summary{color:var(--blue)}
+.task>summary{border-left:5px solid var(--blue2)}
+.task.done>summary{border-left-color:var(--green);background:var(--greenbg)}
+.tnum{font-size:11px;font-weight:700;letter-spacing:.5px;color:#fff;background:var(--blue2);padding:2px 7px;border-radius:20px;white-space:nowrap}
+.task.done .tnum{background:var(--green)}
+.ttitle{flex:1;font-size:15px}
+.badge{font-size:12px;font-weight:700;color:var(--grey);background:#eef1f5;padding:2px 9px;border-radius:20px;white-space:nowrap}
+.task.done .badge{color:#fff;background:var(--green)}
+.chev{color:#9fb0c3;font-size:12px;transition:transform .2s}
+details[open]>summary .chev{transform:rotate(90deg)}
+.body{padding:4px 16px 16px}
+.goal{font-size:13px;color:var(--grey);font-style:italic;margin:6px 0}
+.open{font-size:13px;margin:4px 0 2px}
+.open b{color:var(--blue)}
+.enter{background:#eef3fa;border:1px solid #cbd7e8;border-left:5px solid var(--blue);border-radius:8px;padding:8px 11px;margin:10px 0;font-size:13px}
+.enter b{color:var(--blue);font-size:11px;letter-spacing:.5px}
+.enter .v{color:#23303f}
+.steplabel{font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--grey);margin:14px 0 4px}
+ul.steps{list-style:none;margin:0;padding:0}
+ul.steps>li{margin:2px 0}
+ul.subs{list-style:none;margin:3px 0 6px 30px;padding:0}
+label.step{display:flex;gap:9px;align-items:flex-start;padding:7px 9px;border-radius:8px;cursor:pointer}
+label.step:hover{background:#f7f9fc}
+label.step input{margin-top:3px;width:17px;height:17px;flex:none;cursor:pointer;accent-color:var(--green)}
+label.step.checked .txt{color:#8a98a6;text-decoration:line-through}
+.txt b{color:#16212e}
+.note{border-radius:8px;padding:8px 11px;margin:8px 0;font-size:13px;border-left:5px solid}
+.tip{background:var(--amberbg);border-color:var(--amber);color:#5c4600}
+.tip b{color:var(--amber)}
+.proof{background:var(--greenbg);border-color:var(--green);color:#14532a}
+.proof b{color:var(--green)}
+table.ref{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0}
+table.ref td{border:1px solid var(--line);padding:6px 9px;vertical-align:top}
+table.ref td:first-child{font-weight:600;color:var(--blue);width:38%;background:#f6f9fc}
+.refbody{padding:4px 16px 16px}
+.refbody h3{color:var(--blue);font-size:14px;margin:14px 0 4px}
+.refbody ul{margin:4px 0;padding-left:20px;font-size:13px}
+.refbody li{margin:3px 0}
+.hide{display:none!important}
+footer{color:#9aa7b5;font-size:12px;text-align:center;margin-top:24px}
+</style></head>
+<body><div class="wrap">
+<header><h1>SAP Practical Exam – Interactive Study Guide</h1>
+<div class="sub">GBI on SAP Fiori · your number = <b id="subnum">391</b> · tap a task to open it, tick each step as you go</div></header>
+<div class="bar">
+ <label class="numwrap">Your no. <input id="num" inputmode="numeric" maxlength="3" value="391"></label>
+ <input type="search" id="q" placeholder="Filter tasks…">
+ <button class="btn" id="expand">Expand all</button>
+ <button class="btn" id="collapse">Collapse all</button>
+ <button class="btn" id="reset">Reset progress</button>
+</div>
+<div class="overall" id="overall"></div>
+<div id="ref"></div>
+<div id="tasks"></div>
+<footer>Progress is saved on this device. · Tick steps, watch the task turn green.</footer>
+</div>
+<script>
+var DATA = {"tasks":[{"n":1,"title":"Create an offer (Sales Quotation) for Philly Bikes","goal":"An “offer” = a Sales Quotation. The give-away is the probability field.","app":"Sales and Distribution → “Manage Sales Quotations” → “Create Quotation” (VA21).","steps":[{"b":"Open the app → Create Quotation.","t":" Quotation Type = QT. Sales Organization = UE00, Distribution Channel = WH, Division = BI. Click Continue."},{"b":"Sold-To Party = Philly Bikes.","t":" Click the field, F4. Name = Philly* → Go. Set Search term = 391 → Go → one row: 127391. Select it, OK."},{"b":"PO Number.","t":" “Cust. Reference” = PB-391. “Cust. Ref. Date” = today."},{"b":"Delivery date (today + 14).","t":" Click “Req. Deliv. Date”, Cmd+A, Delete, type the date 14 days from today, Enter."},{"b":"Add the material.","t":" First Material cell → type PRTR3391 (Professional Touring Bike Red). Order Quantity = 2. Press Enter."},{"b":"Add the 10% discount.","t":" Double-click the item row → Item Data → Conditions tab → first empty row: CnTy = RA00, Amount = 10. Enter (net drops 10%)."},{"b":"Set the probability to 50%.","t":" Item Data → Sales A tab → “Order Probability” → change to 50."},{"b":"Save.","t":" If “Document Incomplete” appears, click Save. Note the quotation number."}],"notes":["If the delivery date didn't copy into the item, on Sales A set “First Delivery Date” to today+14."],"proof":"The quotation number, Conditions showing RA00 = 10%, and Order Probability = 50."},{"n":2,"title":"Create a contact person “Maryl Streep” for customer Philly Bikes","goal":"Attach a new person to the Philly Bikes company record.","app":"“Manage Business Partner Master Data”.","steps":[{"b":"Find Philly Bikes.","t":" Business Partner filter = 127391 (or type Philly Bikes in Name) → Go."},{"b":"Open it → click Edit (top right).","t":""},{"b":"Open Contacts tab → click Create.","t":" An empty row appears."},{"b":"Enter the name.","t":" Last Name = Streep, First Name = Maryl."},{"b":"Save.","t":" SAP shows “Master data record saved”."}],"notes":["You CANNOT see the link from the contact's own page – verify from the company: Philly Bikes → Contacts tab."],"proof":"Philly Bikes (127391) → Contacts tab listing Maryl Streep."},{"n":3,"title":"Create a contact person “Nicolas Cage” for vendor Spy Gear","goal":"Same as Task 2 but on a vendor.","app":"“Manage Business Partner Master Data”.","steps":[{"b":"Find Spy Gear.","t":" Type Spy Gear in Name → Go; yours is 107391. Or type 107391 directly."},{"b":"Open it → Edit → Contacts tab → Create.","t":""},{"b":"Enter the name.","t":" Last Name = Cage, First Name = Nicolas. Save."}],"proof":"Spy Gear (107391) → Contacts tab listing Nicolas Cage."},{"n":4,"title":"Show a vendor's balance and monthly payments","goal":"Read the balance and find payments in a chosen month.","app":"Financial Accounting → “Display Supplier Balances” (FK10N).","steps":[{"b":"Enter the keys.","t":" Supplier = e.g. Spy Gear 107391, Company Code = US00, Fiscal Year = current. Execute."},{"b":"The “Period” column = the month.","t":" Period 1 = January … 6 = June … 12 = December. (13–16 are special year-end periods.)","sub":["Debit = payments you made to the vendor.","Credit = new invoices / purchases.","Cumulative Balance = running total; the bottom Total row is the overall balance."]},{"b":"Find the payment for a month.","t":" Go to that month's Period row and read the Debit (e.g. Period 6 = June)."},{"b":"Prove it's a payment.","t":" Double-click the Debit → line-item view shows the payment document (type KZ)."}],"notes":["Quick rule: month → Period number; payments → Debit column; double-click Debit to see the document."],"proof":"The balance table with the Period and its Debit, plus the payment document."},{"n":5,"title":"Define a BOM for the 3-wheeled Trolley (TROLLEY391)","goal":"List the components that make up the Trolley.","app":"“Create Material” (MM01), then “Maintain Bill of Material” (CS01).","intro":"In our class the Trolley and its two parts did NOT exist yet, so we created all three materials first, then built the BOM.","steps":[{"b":"PART 1 – Create the Trolley. Open Create Material (MM01).","t":""},{"b":"Initial screen.","t":" Material = TROLLEY391, Industry Sector = M, Material Type = FERT. Continue."},{"b":"Select Views.","t":" Tick “Basic Data 1” + “Work Scheduling” → green check (✓)."},{"b":"Organizational Levels.","t":" Plant = DL00 → green check (✓)."},{"b":"Basic Data 1.","t":" Description = “3-Wheeled Trolley 391”, Base Unit = EA. Press Enter."},{"b":"Save.","t":" “Material TROLLEY391 created”."},{"b":"PART 2 – Create PTRM391 (Plywood Platform).","t":" Material Type = HALB → Basic Data 1 + Work Scheduling → Plant DL00.","sub":["Description “Plywood Platform 391”, Base Unit EA → Enter → Save."]},{"b":"PART 3 – Create WHA391 (Wheel Housing Assy).","t":" Same: Material Type = HALB → views → Plant DL00.","sub":["Description “Wheel Housing Assy 391”, Base Unit EA → Enter → Save. Exit."]},{"b":"BUILD THE BOM. Open Maintain BOM → Create BOM.","t":" Material = TROLLEY391, Plant = DL00, BOM Usage = 1. OK."},{"b":"Add component 1.","t":" Row 0010: PTRM391, Quantity = 1, Unit EA. Enter."},{"b":"Add component 2.","t":" Row 0020: WHA391, Quantity = 3, Unit EA. Enter."},{"b":"Save the BOM.","t":" Click Create → “Material BOM saved”."}],"notes":["Finished Trolley = FERT; the two parts = HALB. Two green-check buttons each time (after views, after plant).","In the Create BOM dialog the fields can shift a row – check Material/Plant/Usage before OK."],"proof":"Display BOM (CS03): TROLLEY391, DL00, Usage 1 → shows PTRM391 (1) and WHA391 (3)."},{"n":6,"title":"Show material inventory for EPADS (Elbow Pads)","goal":"Show stock by type AND future requirements.","app":"“Stock – Single Material” (MMBE) and “Monitor Stock / Requirements List” (MD04).","steps":[{"b":"Stock types (MMBE).","t":" Material = EPAD1391, Plant as required. Execute → Unrestricted-Use, Quality Inspection, Blocked, etc."},{"b":"Future requirements (MD04).","t":" Same material + plant → planned orders / deliveries with a running available quantity."}],"notes":["“EPADS” = Elbow Pads = EPAD1391, not EPAD391. Add the “1”, or F4 → “Elbow Pads*”."],"proof":"One MMBE screenshot (stock types) + one MD04 screenshot (future requirements)."},{"n":7,"title":"Road Helmets PO + goods receipt + transfer into an empty bin","goal":"Full warehouse putaway: buy → receive → move into a bin, showing bins before & after.","app":"Warehouse Management space – Manage POs, Post Goods Receipt, Run Bin Status Report, Display Transfer Requirement, Confirm Transfer Order.","steps":[{"b":"Create the PO.","t":" Manage POs → Create. Type NB, Supplier Spy Gear 107391, Purch Group N00, Purch Org US00, Company US00.","sub":["Item: Material Road Helmet RHMT1391 (F4 “Road Helmet*”), Plant SD00, Qty 100, Net Price 27 USD.","Item → Delivery → Storage Location TG00. Schedule line → Delivery Date today+10.","Save → write down the PO number."]},{"b":"Goods receipt.","t":" Post Goods Receipt for Purchasing Document → your PO (F4: *391).","sub":["Check Storage Location = Trading Goods, stock type Unrestricted-Use; tick “delivery completed”.","Post → note the material document number."]},{"b":"Bins BEFORE.","t":" Run Bin Status Report → Warehouse 100, bin STBN*391 → Execute. Helmets are NOT in a STBN bin yet. Screenshot."},{"b":"Create the transfer order (putaway).","t":" Display Transfer Requirement – List for Material → Warehouse 100, Material RHMT1391, Plant SD00 → Enter.","sub":["Select your line → Create Transfer Order.","Enter to copy qty 100. Sec = 001, Destination Bin = empty bin STBN-3-391, Type = 001. Enter.","Save → write down the transfer-order number."]},{"b":"Confirm the transfer order.","t":" Confirm Transfer Order → TO number + Warehouse 100 → Confirm."},{"b":"Bins AFTER.","t":" Run Bin Status Report again → STBN-3-391 now holds the 100 helmets. Screenshot."}],"notes":["The exam prints “IS00” – use US00. The empty bin can be any STBN-x-391 not in use."],"proof":"Two Bin Status Report screenshots (before = empty, after = STBN-3-391 holds 100)."},{"n":8,"title":"Sales Order for KNEE PADS + delivery + picking","goal":"Sell 10 knee pads to Philly Bikes and carry it through to picking.","app":"Create Sales Order (VA01); then “Create Outbound Deliveries – From Sales Orders” (VL01N).","steps":[{"b":"Create the order.","t":" Order Type OR, UE00 / WH / BI. Continue."},{"b":"Order data.","t":" Sold-To Philly Bikes 127391. Material KPAD1391, Qty 10, Req. delivery today+10. Enter → Save → note the SO number."},{"b":"Outbound delivery.","t":" Create Outbound Deliveries → Shipping Point Miami (MI00) → enter your order → create the delivery."},{"b":"Picking.","t":" Delivery's Picking tab → Picking Quantity 10 from Storage Location FG00. Save."},{"b":"Stock & value.","t":" Open MMBE for KPAD1391 to read quantity and value."}],"notes":["If your knee pads are in San Diego, picking uses a transfer order instead (see Task 7 / WM III flow)."],"proof":"The delivery with picking done + MMBE stock for KPAD1391."},{"n":9,"title":"Name and balance of G/L account 720300","goal":"Find the account's name and balance.","app":"“Manage G/L Account Master Data” + “Display G/L Account Balances” (FAGLB03).","steps":[{"b":"Name.","t":" Search account 720300 → read its description."},{"b":"Balance.","t":" Display G/L Account Balances → 720300, Company US00, fiscal year → Execute → read the total."}],"notes":["720300 may not exist in this client – read the exact name/figure off the screen. Learn the path, not a number."],"proof":"The account name and the balance figure."},{"n":10,"title":"Balance of the Philly Bikes customer and the Spy Gear vendor","goal":"Two quick balance look-ups.","app":"“Display Customer Balances” (FD10N) + “Display Supplier Balances” (FK10N).","steps":[{"b":"Customer.","t":" FD10N → 127391, Company US00, fiscal year (try 2025 if empty) → Execute."},{"b":"Vendor.","t":" FK10N → 107391, Company US00, fiscal year → Execute."}],"notes":["Live result: Philly Bikes balance was 2,500 USD (2025); Spy Gear had no postings (0)."],"proof":"Both balance figures (one screenshot each)."},{"n":11,"title":"Invoice receipt for supply expense 500 USD (no PO) + payment","goal":"Book a vendor invoice NOT linked to a PO, then pay it.","app":"“Create Incoming Invoices” (FB60) → “Post Outgoing Payments” (F-53).","steps":[{"b":"Invoice (FB60).","t":" Vendor Grand Rapids = “Rapids Nuts n Bolts” 108391 (F4 search term 391). Invoice Date today, Amount 500, USD, Company US00, Ref SUPPLY391."},{"b":"Expense line.","t":" Offsetting line to expense account 6850000, Debit 500. Add Cost Center NAAD1000 + tax code/jurisdiction if asked. Post."},{"b":"Payment (F-53).","t":" Document Date today, choose the bank account, Amount 500, select the open Grand Rapids item → Post."},{"b":"Vendor balance.","t":" FK10N for Grand Rapids → screenshot."}],"notes":["In this client the US tax-jurisdiction config can block the final post; the method above is correct."],"proof":"Grand Rapids' vendor balance after the invoice and the payment."},{"n":12,"title":"Incoterms for the Motown Bikes customer","goal":"Find the Incoterms and explain them.","app":"Manage Business Partner → Customer role (FLCU01), sales area UE00 / WH / BI.","steps":[{"b":"Open Motown Bikes 132391.","t":" Manage Business Partner → filter 132391 → open it."},{"b":"Switch to the Customer role.","t":" Roles tab → open “Customer (FLCU01)” → Sales Areas."},{"b":"Find Incoterms.","t":" Open the UE00 / WH / BI row → Sales Area Details → Billing → read the Incoterms."},{"b":"Explain.","t":" Live result: FOB (Free on Board), location Dallas. FOB = seller covers cost/risk until the goods are loaded; after that the buyer is responsible."}],"proof":"Screenshot of the Incoterms field (FOB, Dallas) + a one-line meaning."},{"n":13,"title":"Change KNEE PADS gross weight to 18 OZ","goal":"Edit one field on the material master.","app":"“Change Material” (MM02).","steps":[{"b":"Open the material.","t":" Material = KPAD1391 → select view “Basic Data 1” → Enter."},{"b":"Change.","t":" Gross Weight = 18, Weight Unit = OZ."},{"b":"Save.","t":""}],"proof":"Basic Data view showing Gross Weight = 18 OZ."},{"n":14,"title":"Full sales order for PRTR391 → delivery (Miami) → invoice","goal":"Run the whole sell → deliver → bill cycle (no inquiry/quotation needed).","app":"Create Sales Order (VA01) → Create Outbound Delivery (VL01N) → Create Billing Document (VF01).","steps":[{"b":"Sales order.","t":" Order Type OR, UE00 / WH / BI, Sold-To Philly Bikes 127391."},{"b":"References.","t":" PO Number (Cust. Reference) = training-391, PO Date = today."},{"b":"Item.","t":" Material PRTR3391 (F4 for the colour), Qty 2, Req. delivery today+7. Save → SO number."},{"b":"Delivery.","t":" Create Outbound Deliveries → Shipping Point Miami (MI00) → pick from FG00 → Post Goods Issue."},{"b":"Invoice.","t":" Create Billing Document (VF01) from the delivery → Save → invoice number."}],"notes":["PGI needs Miami stock of the bike. If “Deficit of stock” appears, the bike must be produced first (see Task 16)."],"proof":"The delivery (goods issue done) + the invoice number."},{"n":15,"title":"DXTR3391 unrestricted stock in Miami + production plans","goal":"Read one stock figure and check for planned production.","app":"“Stock – Single Material” (MMBE) + “Monitor Stock / Requirements List” (MD04).","steps":[{"b":"Stock (MMBE).","t":" Material DXTR3391, find Plant MI00 (Miami) → read Unrestricted-Use. (Live: 0 in Miami; 3 in Dallas DL00.)"},{"b":"Plans (MD04).","t":" Material DXTR3391, Plant DL00 → planned orders (PldOrd) = the production plans. (Live: many planned orders.)"}],"proof":"The unrestricted qty in Miami + whether MD04 lists planned/production orders."},{"n":16,"title":"Launch a planned production order for DXTR3391 and carry it out","goal":"Turn a plan into a real production order and finish it.","app":"MD04 to convert the planned order → “Confirm Production Order” (CO15).","steps":[{"b":"Before.","t":" Screenshot MD04 / MMBE showing stock + the planned orders."},{"b":"Convert.","t":" In MD04 (Plant DL00) double-click a planned order → convert to Production Order → Release."},{"b":"Confirm.","t":" Confirm Production Order (CO15) – posts the goods receipt of finished bikes."},{"b":"After.","t":" Screenshot MD04 / MMBE again – stock up, planned order gone."}],"proof":"Before & after screenshots (stock increased, planned order consumed)."},{"n":17,"title":"Routing of DXTR391 in the Dallas factory – operation 010","goal":"Show which components are consumed in operation 010.","app":"“Display Routing” (CA03).","steps":[{"b":"Open.","t":" Material DXTR3391, Plant DL00 → Enter."},{"b":"Operations.","t":" Operation Overview → select operation 0010."},{"b":"Components.","t":" Component Allocation → see which parts are used in op 010."}],"proof":"Screenshot of operation 010 with its components."},{"n":18,"title":"Status of Purchase Order 4500000321","goal":"Read header + item details from an existing PO.","app":"“Display Purchase Order” (ME23N).","steps":[{"b":"Open.","t":" If it shows another PO, use “Other Purchase Order” → 4500000321."},{"b":"Supplier.","t":" Read it from the header."},{"b":"Delivery & status.","t":" Item → “Purchase Order History” tab → goods-receipt date = when delivered."}],"proof":"Supplier (header) + delivery date/status (PO history)."},{"n":19,"title":"History of Sales Order 338 – when was the invoice paid?","goal":"Trace the order to its accounting/payment document.","app":"“Display Sales Order” (VA03) → Document Flow.","steps":[{"b":"Open.","t":" VA03 → 338 → Document Flow."},{"b":"Follow the chain.","t":" Order → Delivery → Invoice → Accounting document."},{"b":"Payment date.","t":" Open the accounting document; if cleared it shows the clearing (payment) date."}],"proof":"The document flow + the clearing/payment date."},{"n":20,"title":"Request for Quotation (RFQ) for T-SHIRT391 to two vendors","goal":"Ask two vendors for a price and compare.","app":"“Create RFQ” (ME41) → “Maintain Quotation” (ME47) → “Price Comparison” (ME49).","steps":[{"b":"Create RFQ (ME41).","t":" Deadline today+7. Collective No. TRAIN391. Org US00 / N00. SLoc TG00. Item: SHRT1391, Qty 100, Delivery today+14."},{"b":"Two vendors.","t":" Save once for Dallas Bike Basics and once for Spy Gear (same Collective No. TRAIN391). Note both RFQ numbers."},{"b":"Enter prices (ME47).","t":" Dallas Bike Basics = 20 USD, Spy Gear = 40 USD."},{"b":"Compare (ME49).","t":" Price comparison on TRAIN391 → cheapest is marked (Dallas at 20)."}],"proof":"The price-comparison screen showing Dallas Bike Basics (20) as best."},{"n":21,"title":"Quotation for Philly Bikes – Deluxe Touring Bike Black","goal":"Same idea as Task 1.","app":"“Manage Sales Quotations” → Create (VA21).","steps":[{"b":"Type & org.","t":" QT, UE00 / WH / BI, Sold-To Philly Bikes 127391."},{"b":"References.","t":" PO Number = TRAIN10-391, PO Date = today."},{"b":"Item.","t":" Material Deluxe Touring Bike Black (F4 → DXTR1391), Qty 1, Req. delivery today+7."},{"b":"Discount.","t":" Item → Conditions → RA00 = 3 (= 3%)."},{"b":"Probability.","t":" Item → Sales A → Order Probability = 50. Save."}],"proof":"The quotation with RA00 3% + Order Probability 50."},{"n":22,"title":"Purchase Order for AIRPUMP from Dallas Bike Basics + receive + invoice","goal":"Buy 50 air pumps, receive, post invoice, check vendor account.","app":"Create PO (ME21N) → Goods Receipt (MIGO) → Create Supplier Invoice (MIRO) → Supplier Balances (FK10N).","steps":[{"b":"PO header.","t":" Supplier Dallas Bike Basics (F4 search term 391). Purch Org US00, Group N00."},{"b":"PO item.","t":" Material Air Pump AIRP1391 (F4 “Air Pump*”), Qty 50, Net Price 10 USD, Plant MI00, SLoc TG00, Delivery today+3 weeks. Save."},{"b":"Goods receipt (MIGO).","t":" Receive against the PO → show inventory in MMBE."},{"b":"Invoice (MIRO).","t":" Supplier invoice referencing the PO: 50 × 10 = 500 USD. Post."},{"b":"Vendor account (FK10N).","t":" Dallas Bike Basics → show credit/debit values."}],"proof":"Inventory after receipt (MMBE) + the vendor account credit/debit."},{"n":23,"title":"General Ledger balance for the Bank Account + its number","goal":"Find the bank G/L account, number and balance.","app":"“Display G/L Account Balances” (FAGLB03).","steps":[{"b":"Find it.","t":" Search the chart of accounts for “Bank” (main account usually 100000)."},{"b":"Balances.","t":" Enter that account, Company US00, fiscal year → Execute."}],"proof":"The bank account number + its balance."},{"n":24,"title":"Product Group for the Deluxe Touring Bikes","goal":"List the members + their production %.","app":"“Display Product Group” (MC84).","steps":[{"b":"Open.","t":" Product Group = Deluxe Touring Bikes (F4), Plant DL00 → Display."},{"b":"Members.","t":" Read the member materials (DXTR1391/2391/3391) + the Proportion / production % column."}],"notes":["The members' percentages add up to 100% – that's your check."],"proof":"The member list with each product's production %."}],"taskData":{"1":["Type QT","UE00 / WH / BI","Sold-to Philly Bikes 127391","PO No. PB-391, date today","Material PRTR3391","Qty 2 EA","Delivery today+14","Discount RA00 10%","Probability 50%"],"2":["Manage Business Partner Master Data","BP Philly Bikes 127391","Contact: First Maryl, Last Streep"],"3":["Manage Business Partner Master Data","BP Spy Gear 107391","Contact: First Nicolas, Last Cage"],"4":["Display Supplier Balances (FK10N)","Supplier e.g. Spy Gear 107391","Company Code US00","Fiscal Year = current"],"5":["Create Material (MM01) + Maintain BOM (CS01)","Trolley TROLLEY391 (FERT)","Parts PTRM391, WHA391 (HALB)","Plant DL00","BOM Usage 1","Base 1 EA (3 wheels)"],"6":["Stock – Single Material (MMBE) + MD04","Material EPAD1391 (Elbow Pads)","Plant where stocked (San Diego SD00)"],"7":["Supplier Spy Gear 107391","Purch Org US00 · Group N00 · Company US00","Material RHMT1391","Qty 100 · Price 27 USD","Delivery today+10","Plant SD00 · SLoc TG00","Warehouse 100 · empty bin STBN-3-391"],"8":["Customer Philly Bikes 127391","Material KPAD1391","Qty 10","Delivery today+10","UE00 / WH / BI","Pick from FG00"],"9":["G/L master + Display G/L Balances","Account 720300","Company Code US00","Fiscal Year = current"],"10":["Display Customer Balances (FD10N) + Supplier Balances (FK10N)","Customer 127391 · Supplier 107391","Company Code US00","Fiscal Year (try 2025)"],"11":["FB60 (no PO) + Post Outgoing Payment (F-53)","Vendor Grand Rapids = 108391","Amount 500 USD · Ref SUPPLY391","Company US00 · dates today","Expense 6850000 · Cost Center NAAD1000"],"12":["Manage Business Partner → Customer role (FLCU01)","Customer Motown Bikes 132391","Sales area UE00 / WH / BI","Read Incoterms on the Billing tab"],"13":["Change Material (MM02)","Material KPAD1391 → Basic Data 1","Gross Weight 18 OZ"],"14":["Customer Philly Bikes 127391","PO Ref training-391","Material PRTR3391","Qty 2 · Delivery today+7","UE00 / WH / BI","Shipping Point Miami (MI00) · SLoc FG00"],"15":["Stock – Single Material (MMBE) + MD04","Material DXTR3391","Stock plant MI00 (Miami)","Production plant DL00 (Dallas)"],"16":["MD04 → convert planned order → Confirm Production Order (CO15)","Material DXTR3391","Plant DL00"],"17":["Display Routing (CA03)","Material DXTR3391 (Dallas)","Plant DL00","Operation 0010"],"18":["Display Purchase Order (ME23N)","PO 4500000321"],"19":["Display Sales Order (VA03) → Document Flow","Sales Order 338"],"20":["ME41 + ME47 + ME49","Material SHRT1391 · Qty 100","Deadline today+7 · Delivery today+14","SLoc TG00 · Collective No. TRAIN391","Vendors Dallas Bike Basics + Spy Gear","Prices 20 / 40 USD"],"21":["Create Quotation (VA21) · QT","Customer Philly Bikes 127391","PO No. TRAIN10-391","Material DXTR1391 · Qty 1","Delivery today+7","Discount RA00 3% · Probability 50%"],"22":["ME21N + MIGO + MIRO + FK10N","Supplier Dallas Bike Basics","Material AIRP1391 · Qty 50 · Price 10 USD","Delivery today+3 weeks","Plant MI00 · SLoc TG00","Invoice 500 USD"],"23":["Display G/L Account Balances (FAGLB03)","Bank account (search “Bank”)","Company Code US00","Fiscal Year = current"],"24":["Display Product Group (MC84)","Deluxe Touring Bikes","Plant DL00","Members DXTR1391 / 2391 / 3391 + %"]},"readFirst":[["Your number is 391.","Replace every ### with 391 (PO numbers like PB-391, materials, last 3 digits of master data)."],["Find a customer / vendor / material.","Click the field's search icon (F4), search by Name, then set Search term = 391 to get YOUR copy. Known: Philly Bikes 127391, Spy Gear 107391."],["Material numbers carry an extra digit.","Trading goods have a “1” before your number: Knee Pads KPAD1391, Elbow Pads EPAD1391, T-Shirt SHRT1391. Bikes have a colour digit: Prof. Touring Red = PRTR3391. When unsure, F4 and search the description."],["Typing dates.","If a date snaps back to today, click it, Cmd+A, Delete, type MM/DD/YYYY, Enter. “In X days” = today + X."],["F4 = search, F1 = explain.","Stuck on a value → F4. Don't know what a field means → F1."],["Save the document number.","SAP shows it at the bottom after you Save. Tasks chain: order → delivery → invoice."],["Use the classic GUI for sales orders.","Your account isn't authorised for the newer “Manage Sales Orders” Fiori app – it errors. Use the classic Create Sales Order screen."]],"meanings":[["Customer / Sold-to Party","the company buying from Global Bike (e.g. Philly Bikes)."],["Supplier / Vendor","the company selling to Global Bike (e.g. Spy Gear, Dallas Bike Basics)."],["Material","the product number in SAP (e.g. KPAD1391 Knee Pads, DXTR3391 a bike)."],["Plant","a business location (DL00 Dallas, SD00 San Diego, MI00 Miami)."],["Storage location","a sub-area inside a plant (TG00 Trading Goods, FG00 Finished Goods)."],["Quotation / Offer","a price offer to a customer – the give-away is the probability field."],["Sales Order","a confirmed customer order that goes on to delivery and invoice."],["Delivery","the shipping document – picking and goods issue happen on it."],["Goods Receipt (GR)","posting that goods arrived; stock goes UP."],["Goods Issue (PGI)","posting that goods left stock (shipped to a customer or production); stock goes DOWN."],["Billing / Invoice","the document that charges the customer."],["BOM","Bill of Material – the list of parts needed to make one finished product."],["RFQ","Request for Quotation – ask suppliers for prices before you buy."],["Transfer Order (TO)","the warehouse instruction that actually moves stock into / out of a bin."],["G/L Account","a General Ledger (accounting) account used for balances and postings."],["Incoterms","international delivery terms – who pays freight and when the risk passes (e.g. FOB)."]],"cheat":[["Sales Org – US East","UE00 (sells from Miami) · Channel WH (Wholesale) · Division BI (Bikes)"],["Sales Org – US West","UW00 (sells from San Diego) · Channel WH · Division BI"],["Purchasing Org / Group / Company","US00 / N00 / US00"],["Plants","MI00 Miami · DL00 Dallas · SD00 San Diego"],["Storage locations","FG00 Finished Goods · TG00 Trading Goods · RM00 Raw · SF00 Semi-finished"],["Warehouse (WM)","Warehouse Number 100 = San Diego · Storage type 001 = Shelf Storage"],["Storage bins (WM)","STBN-1-391, STBN-2-391, STBN-3-391 … (report search: STBN*391)"],["Document types","QT = Quotation · OR = Standard Order · AN = RFQ · NB = Standard PO"],["Key master data","Philly Bikes 127391 · Spy Gear 107391 · Motown Bikes 132391"],["Materials seen live","KPAD1391 Knee Pads · EPAD1391 Elbow Pads · SHRT1391 T-Shirt · PRTR3391 Prof. Touring Red"]],"glossary":[["VA01","Create Sales Order"],["VA21","Create Quotation"],["VA03","Display Sales Order (document flow)"],["VL01N","Create Outbound Delivery"],["VF01","Create Billing Document (invoice)"],["ME21N / ME23N","Create / Display Purchase Order"],["ME41 / ME47 / ME49","Create RFQ / enter vendor prices / compare prices"],["MM01 / MM02","Create / Change Material"],["CS01 / CS03","Create / Display Bill of Material"],["CA03","Display Routing"],["CO15","Confirm Production Order"],["MC84","Display Product Group"],["MMBE","Stock – Single Material (stock by type, per plant)"],["MD04","Monitor Stock / Requirements List (future orders)"],["FK10N / FD10N","Display Supplier / Customer Balances"],["FB60","Create Incoming Invoice (no PO)"],["F-53","Post Outgoing Payment"],["MIGO / MIRO","Post Goods Receipt / Create Supplier Invoice (with PO)"],["FAGLB03","Display G/L Account Balances"],["BP","Maintain Business Partner"]],"wm":["San Diego (plant SD00) is the warehouse-managed site – warehouse number 100. Stock lives in bins named STBN-x-391.","Putaway (goods IN): goods receipt lands in a temp bin → create a transfer order to a real bin → confirm it.","Picking (goods OUT): outbound delivery → create a transfer order to pick from the bin → confirm it → post goods issue.","Every bin move needs a Transfer Order that you then Confirm. The apps are in the Warehouse Management space."]};
+var KEY='sapguide391_v1';
+var done=new Set();
+try{var s=localStorage.getItem(KEY); if(s) done=new Set(JSON.parse(s));}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(Array.from(done)));}catch(e){}}
+// ----- your-number substitution: replace 391 everywhere with the chosen number -----
+var NUMKEY='sapguide391_num';
+var NUM; try{NUM=localStorage.getItem(NUMKEY);}catch(e){}
+if(!/^[0-9]{1,3}$/.test(NUM||'')) NUM='391';
+function S(x){return (''+x).split('391').join(NUM);}
+function el(tag,cls,txt){var e=document.createElement(tag); if(cls)e.className=cls; if(txt!=null)e.textContent=S(txt); return e;}
+
+// build a checkbox step row
+function stepRow(id,boldTxt,detailTxt){
+  var lab=el('label','step'); lab.dataset.id=id;
+  var cb=el('input'); cb.type='checkbox'; cb.checked=done.has(id);
+  if(cb.checked) lab.classList.add('checked');
+  var span=el('span','txt');
+  if(boldTxt){var b=el('b',null,boldTxt); span.appendChild(b);}
+  if(detailTxt) span.appendChild(document.createTextNode(S(detailTxt)));
+  cb.addEventListener('change',function(){
+    if(cb.checked){done.add(id); lab.classList.add('checked');} else {done.delete(id); lab.classList.remove('checked');}
+    save(); refreshTask(id.split('-')[0]); refreshOverall();
+  });
+  lab.appendChild(cb); lab.appendChild(span); return lab;
+}
+function idsForTask(t){
+  var ids=[];
+  t.steps.forEach(function(s,i){
+    ids.push('t'+t.n+'-s'+i);
+    if(s.sub) s.sub.forEach(function(_,j){ids.push('t'+t.n+'-s'+i+'-'+j);});
+  });
+  return ids;
+}
+function refreshTask(prefix){
+  var t=DATA.tasks.find(function(x){return 't'+x.n===prefix;}); if(!t)return;
+  var ids=idsForTask(t); var n=ids.filter(function(id){return done.has(id);}).length;
+  var card=document.getElementById('task-'+t.n);
+  var badge=card.querySelector('.badge'); badge.textContent=n+'/'+ids.length;
+  if(n===ids.length && ids.length>0) card.classList.add('done'); else card.classList.remove('done');
+}
+function refreshOverall(){
+  var totalSteps=0,doneSteps=0,doneTasks=0;
+  DATA.tasks.forEach(function(t){var ids=idsForTask(t); totalSteps+=ids.length; var d=ids.filter(function(id){return done.has(id);}).length; doneSteps+=d; if(d===ids.length&&ids.length>0)doneTasks++;});
+  var o=document.getElementById('overall');
+  var pct=totalSteps?Math.round(doneSteps/totalSteps*100):0;
+  o.innerHTML='<b>'+doneTasks+'</b> of 24 tasks complete · '+doneSteps+'/'+totalSteps+' steps ticked'+
+    '<div class="obar"><i style="width:'+pct+'%"></i></div>';
+}
+
+// ----- reference (collapsible) -----
+function buildRef(){
+  var wrap=document.getElementById('ref');
+  function card(title,fill){
+    var d=el('details','card ref'); var sm=el('summary');
+    sm.appendChild(el('span','ttitle',title));
+    var ch=el('span','chev','▸'); sm.appendChild(ch);
+    d.appendChild(sm); var body=el('div','refbody'); fill(body); d.appendChild(body); wrap.appendChild(d);
+  }
+  card('How to use this guide',function(b){var ul=el('ul'); DATA.readFirst.forEach(function(r){var li=el('li'); li.appendChild(el('b',null,r[0]+' ')); li.appendChild(document.createTextNode(S(r[1]))); ul.appendChild(li);}); b.appendChild(ul);});
+  card('SAP words in plain English',function(b){var ul=el('ul'); DATA.meanings.forEach(function(r){var li=el('li'); li.appendChild(el('b',null,r[0]+' — ')); li.appendChild(document.createTextNode(S(r[1]))); ul.appendChild(li);}); b.appendChild(ul);});
+  card('Org data cheat sheet',function(b){var t=el('table','ref'); DATA.cheat.forEach(function(r){var tr=el('tr'); tr.appendChild(el('td',null,r[0])); tr.appendChild(el('td',null,r[1])); t.appendChild(tr);}); b.appendChild(t);});
+  card('Glossary – app codes',function(b){var t=el('table','ref'); DATA.glossary.forEach(function(r){var tr=el('tr'); tr.appendChild(el('td',null,r[0])); tr.appendChild(el('td',null,r[1])); t.appendChild(tr);}); b.appendChild(t);});
+  card('Warehouse Management essentials',function(b){var ul=el('ul'); DATA.wm.forEach(function(x){ul.appendChild(el('li',null,x));}); b.appendChild(ul);});
+}
+
+// ----- tasks -----
+function buildTasks(){
+  var wrap=document.getElementById('tasks');
+  DATA.tasks.forEach(function(t){
+    var ids=idsForTask(t); var d0=ids.filter(function(id){return done.has(id);}).length;
+    var card=el('details','card task'); card.id='task-'+t.n;
+    if(d0===ids.length&&ids.length>0) card.classList.add('done');
+    var sm=el('summary');
+    sm.appendChild(el('span','tnum','Task '+t.n));
+    sm.appendChild(el('span','ttitle',t.title));
+    sm.appendChild(el('span','badge',d0+'/'+ids.length));
+    sm.appendChild(el('span','chev','▸'));
+    card.appendChild(sm);
+    var body=el('div','body');
+    body.appendChild(el('div','goal',t.goal));
+    var open=el('div','open'); open.appendChild(el('b',null,'Open: ')); open.appendChild(document.createTextNode(S(t.app))); body.appendChild(open);
+    var kd=DATA.taskData[t.n];
+    if(kd){var e=el('div','enter'); e.appendChild(el('b',null,'WHAT TO ENTER  ')); e.appendChild(el('span','v',kd.join('    ·    '))); body.appendChild(e);}
+    if(t.intro){var ni=el('div','note tip'); ni.appendChild(el('b',null,'HEADS-UP  ')); ni.appendChild(document.createTextNode(S(t.intro))); body.appendChild(ni);}
+    body.appendChild(el('div','steplabel','STEPS – tick each one'));
+    var ul=el('ul','steps');
+    t.steps.forEach(function(s,i){
+      var li=el('li');
+      li.appendChild(stepRow('t'+t.n+'-s'+i, s.b||'', s.t||''));
+      if(s.sub){var su=el('ul','subs'); s.sub.forEach(function(x,j){var sli=el('li'); sli.appendChild(stepRow('t'+t.n+'-s'+i+'-'+j,'',x)); su.appendChild(sli);}); li.appendChild(su);}
+      ul.appendChild(li);
+    });
+    body.appendChild(ul);
+    if(t.notes) t.notes.forEach(function(nt){var nn=el('div','note tip'); nn.appendChild(el('b',null,'TIP  ')); nn.appendChild(document.createTextNode(S(nt))); body.appendChild(nn);});
+    var pf=el('div','note proof'); pf.appendChild(el('b',null,'✓ PROOF TO SHOW  ')); pf.appendChild(document.createTextNode(S(t.proof))); body.appendChild(pf);
+    card.appendChild(body);
+    wrap.appendChild(card);
+  });
+}
+buildRef(); buildTasks(); refreshOverall();
+
+// your-number box
+function rerender(){document.getElementById('subnum').textContent=NUM; var r=document.getElementById('ref'); r.innerHTML=''; buildRef(); var tk=document.getElementById('tasks'); tk.innerHTML=''; buildTasks(); refreshOverall();}
+document.getElementById('subnum').textContent=NUM;
+var ni=document.getElementById('num'); ni.value=NUM;
+ni.addEventListener('input',function(){var v=ni.value.replace(/[^0-9]/g,'').slice(0,3); ni.value=v; if(v.length===3){NUM=v; try{localStorage.setItem(NUMKEY,NUM);}catch(e){} rerender();}});
+ni.addEventListener('blur',function(){if(ni.value.length<3) ni.value=NUM;});
+
+// controls
+document.getElementById('expand').onclick=function(){document.querySelectorAll('details.task').forEach(function(d){d.open=true;});};
+document.getElementById('collapse').onclick=function(){document.querySelectorAll('details.card').forEach(function(d){d.open=false;});};
+document.getElementById('reset').onclick=function(){if(confirm('Clear all ticked steps?')){done=new Set(); save(); document.querySelectorAll('label.step input').forEach(function(c){c.checked=false; c.parentElement.classList.remove('checked');}); DATA.tasks.forEach(function(t){refreshTask('t'+t.n);}); refreshOverall();}};
+document.getElementById('q').addEventListener('input',function(e){
+  var q=e.target.value.trim().toLowerCase();
+  document.querySelectorAll('details.task').forEach(function(d){
+    var t=DATA.tasks.find(function(x){return 'task-'+x.n===d.id;});
+    var hay=S(t.title+' '+t.goal+' '+t.app+' '+(DATA.taskData[t.n]||[]).join(' ')).toLowerCase();
+    d.classList.toggle('hide', q && hay.indexOf(q)<0);
+  });
+});
+</script>
+</body></html>
